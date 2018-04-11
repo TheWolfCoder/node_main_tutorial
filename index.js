@@ -35,17 +35,17 @@ var logicServer = function(req, res) {
     
     req.on('end', function(){
      buffer += decoder.end();
-    });
+ 
 
-    var chosenHandler = typeof(router[trimmedPath]) !== "undefined" ? router[trimmedPath] : handlers.notFound;
+    var chosenHandler = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
 
     var data = {
-     "trimmedPath" : trimmedPath,
-     "queryString" : queryString,
-     "method" : method,
-     "payload" : buffer,
-     "header" : header
+     'trimmedPath' : trimmedPath,
+     'queryString' : queryString,
+     'method' : method,
+     'payload' : buffer,
+     'header' : header
     };
 
      chosenHandler(data, function(statusCode, payload)
@@ -60,8 +60,7 @@ var logicServer = function(req, res) {
          res.end(payloadString);
        });
 
-
-
+     });   
 
 };
 
